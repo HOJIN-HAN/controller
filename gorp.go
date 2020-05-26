@@ -1,4 +1,4 @@
-package controller
+package controller // import "github.com/HOJIN-HAN/controller"
 
 import (
 	"database/sql"

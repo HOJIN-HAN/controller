@@ -1,4 +1,4 @@
-module controller
+module  github.com/HOJIN-HAN/controller
 
 go 1.14
 
