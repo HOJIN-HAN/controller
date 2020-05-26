@@ -2,6 +2,7 @@ package controller // import "github.com/HOJIN-HAN/controller"
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 
 	"github.com/HOJIN-HAN/models"
@@ -22,6 +23,8 @@ type GorpController struct {
 func InitDB() {
 	db, err := sql.Open("mysql", "mysql_admin:mysql_admin@tcp(127.0.0.1:3306)/new_schema")
 	checkErr(err, "sql.Open failed")
+
+	fmt.Println("test")
 
 	Dbm = &gorp.DbMap{Db: db, Dialect: gorp.MySQLDialect{"InnoDb", "UTF8"}}
 	Dbm.AddTableWithName(models.Board{}, "tbl_user").SetKeys(true, "Id")
