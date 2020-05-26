@@ -2,7 +2,7 @@ package controller // import "github.com/HOJIN-HAN/controller"
 
 import "github.com/revel/revel"
 
-func init() {
+func Init() {
 	revel.OnAppStart(InitDB)
 	revel.InterceptMethod((*GorpController).Begin, revel.BEFORE)
 
