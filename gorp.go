@@ -21,17 +21,23 @@ type GorpController struct {
 }
 
 func InitDB() {
+	fmt.Println("test1")
 	db, err := sql.Open("mysql", "mysql_admin:mysql_admin@tcp(127.0.0.1:3306)/new_schema")
+	fmt.Println("test2")
 	checkErr(err, "sql.Open failed")
 
-	fmt.Println("test")
+	fmt.Println("test3")
 
 	Dbm = &gorp.DbMap{Db: db, Dialect: gorp.MySQLDialect{"InnoDb", "UTF8"}}
+	fmt.Println("test4")
 	Dbm.AddTableWithName(models.Board{}, "tbl_user").SetKeys(true, "Id")
 
+	fmt.Println("test5")
 	err = Dbm.CreateTablesIfNotExists()
+	fmt.Println("test6")
 	checkErr(err, "Create tables failed")
 
+	fmt.Println("test7")
 	//Dbm.TraceOn("[gorp]", r.INFO)
 	log.Println("gorp 초기화 완료")
 }
